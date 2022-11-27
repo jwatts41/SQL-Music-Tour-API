@@ -36,6 +36,23 @@ bands.post('/', async (req, res) => {
     }
 })
 
+// UPDATE A BAND
+bands.put('/:id', async (req, res) => {
+    try {
+        const updatedBands = await Band.update(req.body, {
+            where: {
+                band_id: req.params.id
+            }
+        })
+        res.status(200).json({
+            message: `Successfully updated ${updatedBands} band(s)`
+        })
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
+
 
 
 
