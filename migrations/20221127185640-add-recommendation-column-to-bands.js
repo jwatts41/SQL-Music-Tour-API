@@ -16,11 +16,12 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
+    await queryInterface.removeColumn('bands', 'recommendation')
     /**
      * Add reverting commands here.
      *
      * Example:
      * await queryInterface.dropTable('users');
      */
-  }
+  } 
 };
